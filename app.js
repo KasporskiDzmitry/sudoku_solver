@@ -11,6 +11,12 @@ for (let i = 0; i < 9; i++) {
         let td = document.createElement("td");
         let input = document.createElement("input");
         input.className = "cell";
+        input.maxLength = "1";
+        input.addEventListener("input", () => {
+            if (!/^\d+$/.test(input.value)) {
+                input.value = "";
+            }
+        });
 
         td.appendChild(input);
         tr.appendChild(td);
